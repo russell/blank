@@ -7,8 +7,8 @@ html {
     --fontcolor: #444;
     --linkcolor: #00e;
     --visitedcolor: #551a8b;
-    --precolor: #fff;
-    --prebgcolor: #000;
+    --precolor: #272822;
+    --prebgcolor: #fafafa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,7 +26,7 @@ body {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 10px;
-    font: sans-serif;
+    font-family: sans-serif;
     color: var(--fontcolor);
     background: var(--bgcolor);
 }
@@ -51,6 +51,7 @@ p > code {
     color: var(--precolor);
     background: var(--prebgcolor);
     padding:2px;
+    font: 1.2em monospace;
 }
 
 pre {
@@ -58,7 +59,7 @@ pre {
     background: var(--prebgcolor);
     padding:24px;
     overflow-x: auto;
-    font: monospace;
+    font: 1.2em monospace;
 }
 
 article {
