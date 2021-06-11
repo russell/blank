@@ -26,7 +26,7 @@ body {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 10px;
-    font: 16px/1.5 sans-serif;
+    font: sans-serif;
     color: var(--fontcolor);
     background: var(--bgcolor);
 }
@@ -58,6 +58,7 @@ pre {
     background: var(--prebgcolor);
     padding:24px;
     overflow-x: auto;
+    font: monospace;
 }
 
 article {
@@ -79,7 +80,7 @@ img {
 
 figcaption {
     color: #888;
-    font: 12px/1.5 monospace;
+    font: monospace;
     text-align: center;
 }
 
