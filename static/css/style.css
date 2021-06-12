@@ -7,8 +7,8 @@ html {
     --fontcolor: #444;
     --linkcolor: #00e;
     --visitedcolor: #551a8b;
-    --precolor: #272822;
-    --prebgcolor: #fafafa;
+    --precolor: #b44;
+    --prebgcolor: #f8f8f8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,8 +55,8 @@ p > code {
 }
 
 pre {
-    color: var(--precolor);
-    background: var(--prebgcolor);
+    /* color: var(--precolor); */
+    /* background: var(--prebgcolor); */
     padding:24px;
     overflow-x: auto;
     font: 1.2em monospace;
@@ -87,4 +87,18 @@ figcaption {
 
 figure {
     margin: auto;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 768px;
+    width: 100%;
 }
