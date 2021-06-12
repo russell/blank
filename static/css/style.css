@@ -66,6 +66,15 @@ article {
     padding:24px 0;
 }
 
+article h1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+article h1 time {
+    font-size: 1rem;
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -101,4 +110,8 @@ nav {
     justify-content: space-around;
     max-width: 768px;
     width: 100%;
+}
+
+.footnote-definition  {
+    border-bottom: 1px #888 dotted;
 }

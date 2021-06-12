@@ -1,20 +1,27 @@
 {{ define "main" }}
+
+{{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
+{{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
+
 <main>
   <article>
-    <h1>{{ .Title }}</h1>
-    <time>{{ .Date.Format "02.01.2006 15:04" }}</time>
+    <h1>{{ .Title }}
+      <time>{{ $datestr }}</time>
+      {{ if ne $datestr $lastmodstr }}
+      &nbsp;<time>{{ $lastmodstr | i18n "lastModified"  }}</time>
+      {{ end }}
+    </h1>
+    {{ with .Params.tags }}
+    <p id="tags">
+      <span class="keywords">Keywords:</span>
+      {{ range . }}
+      <span><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a></span>
+      {{ end }}
+    </p>
+    {{ end }}
     <div>
       {{ .Content }}
     </div>
-    {{ with .Params.tags }}
-    <div>
-      <ul id="tags">
-	{{ range . }}
-	<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-	{{ end }}
-      </ul>
-    </div>
-    {{ end }}
     {{ with .Site.DisqusShortname }}
     <div>
       {{ template "_internal/disqus.html" . }}

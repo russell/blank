@@ -1,8 +1,19 @@
+{{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
+{{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
 <article>
-  <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-  <time>{{ .Date.Format "02.01.2006 15:04" }}</time>
-  {{ range .Params.tags }}
-  <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+  <h1><a href="{{ .Permalink }}">{{ .Title }}</a>
+    <time>{{ $datestr }}</time>
+    {{ if ne $datestr $lastmodstr }}
+    &nbsp;<time>{{ $lastmodstr | i18n "lastModified"  }}</time>
+    {{ end }}
+  </h1>
+  {{ with .Params.tags }}
+  <p id="tags">
+    <span class="keywords">Keywords:</span>
+    {{ range . }}
+    <span><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a></span>
+    {{ end }}
+  </p>
   {{ end }}
   <div>
     {{ .Summary }}
