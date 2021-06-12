@@ -1,11 +1,12 @@
 {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
 {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
 <article>
-  <h1><a href="{{ .Permalink }}">{{ .Title }}</a>
-    <time>{{ $datestr }}</time>
-    {{ if ne $datestr $lastmodstr }}
-    &nbsp;<time>{{ $lastmodstr | i18n "lastModified"  }}</time>
-    {{ end }}
+  <h1 class="header"><a href="{{ .Permalink }}">{{ .Title }}</a>
+    <span><time>{{ $datestr }}</time>
+      {{ if ne $datestr $lastmodstr }}
+      &nbsp;Updated: <time>{{ $lastmodstr }}</time>
+      {{ end }}
+    </span>
   </h1>
   {{ with .Params.tags }}
   <p id="tags">

@@ -5,11 +5,12 @@
 
 <main>
   <article>
-    <h1>{{ .Title }}
-      <time>{{ $datestr }}</time>
+    <h1 class="header">{{ .Title }}
+      <span><time>{{ $datestr }}</time>
       {{ if ne $datestr $lastmodstr }}
-      &nbsp;<time>{{ $lastmodstr | i18n "lastModified"  }}</time>
-      {{ end }}
+      &nbsp;Updated: <time>{{ $lastmodstr }}</time>
+        {{ end }}
+      </span>
     </h1>
     {{ with .Params.tags }}
     <p id="tags">
